@@ -1,0 +1,18 @@
+<nz-card nzNoHovering>
+    <ng-template #body>
+        <nz-input [nzPlaceHolder]="'输入关键字'"
+                  [nzSize]="'large'"
+                  [ngModel]="inputText$|async"
+                  (ngModelChange)="inputText$.next($event)"
+                  style="width: 400px;">
+            <ng-template #prefix>
+                <i class="anticon anticon-search"></i>
+            </ng-template>
+        </nz-input>
+    </ng-template>
+</nz-card>
+
+<ng-container *ngFor="let movie of movieList$|async">
+    <app-movie-poster [movie]="movie">
+    </app-movie-poster>
+</ng-container>

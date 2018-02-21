@@ -1,0 +1,10 @@
+{
+    "/douban": {
+        "target": "http://api.douban.com",
+        "changeOrigin": true,
+        "secure": false,
+        "pathRewrite": {
+            "^/douban": ""
+        }
+    }
+}

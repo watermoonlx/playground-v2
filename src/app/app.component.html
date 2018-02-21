@@ -1,0 +1,54 @@
+<nz-layout>
+    <nz-sider nzCollapsible
+              [(nzCollapsed)]="isCollapsed"
+              [nzTrigger]="null">
+        <div class="logo">
+        </div>
+        <ul nz-menu
+            [nzTheme]="'dark'"
+            [nzMode]="isCollapsed?'vertical':'inline'">
+            <ng-container *ngFor="let menu of menuList$|async">
+                <ng-container [ngSwitch]="menu?.type">
+                    <li nz-submenu
+                        *ngSwitchCase="'submenu'">
+                        <span title>
+                            <i [ngClass]="menu?.icon"></i>
+                            <span class="nav-text">
+                                {{menu?.title}}</span>
+                        </span>
+                        <ul>
+                            <li nz-menu-item
+                                *ngFor="let item of menu?.items">
+                                <a [routerLink]="[item?.path]">{{item?.title}}</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li nz-menu-item
+                        *ngSwitchCase="'menu-item'">
+                        <span>
+                            <i class="anticon anticon-file"></i>
+                            <span class="nav-text">{{menu?.title}}</span>
+                        </span>
+                    </li>
+                </ng-container>
+            </ng-container>
+        </ul>
+    </nz-sider>
+    <nz-layout>
+        <nz-header style="background: #fff; padding:0;">
+            <i class="anticon trigger"
+               [class.anticon-menu-fold]="!isCollapsed"
+               [class.anticon-menu-unfold]="isCollapsed"
+               (click)="isCollapsed=!isCollapsed"></i>
+        </nz-header>
+        <nz-content style="margin:0 16px;">
+            <nz-breadcrumb style="margin:12px 0;">
+                <nz-breadcrumb-item *ngFor="let item of breadcrumb$|async">{{item}}</nz-breadcrumb-item>
+            </nz-breadcrumb>
+            <div>
+                <router-outlet></router-outlet>
+            </div>
+        </nz-content>
+        <nz-footer style="text-align: center;">Playground ©2017 Implement By Jake.C.Xiao</nz-footer>
+    </nz-layout>
+</nz-layout>

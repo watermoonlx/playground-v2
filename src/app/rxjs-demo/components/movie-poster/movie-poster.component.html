@@ -1,0 +1,17 @@
+<nz-card style="width:240px">
+    <ng-template #body>
+        <div class="custom-image">
+            <img alt="example"
+                 width="100%"
+                 [src]="movie?.images?.small" />
+        </div>
+        <div class="custom-card">
+            <h3>{{movie?.title}}</h3>
+            <nz-rate [ngModel]="movie.rating.stars | rateStars"
+                     nzAllowHalf
+                     nzDisabled></nz-rate>
+            <span *ngIf="movie?.rating?.average"
+                  class="ant-rate-text">{{movie?.rating?.average}}</span>
+        </div>
+    </ng-template>
+</nz-card>
