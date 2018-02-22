@@ -5,6 +5,11 @@ export const menuConfig = [
         icon: "anticon anticon-appstore-o",
         items: [
             {
+                title: "基本概念",
+                type: "menu-item",
+                path: "rxjs-demo/basic-concepts"
+            },
+            {
                 title: "数据的关联计算",
                 type: "menu-item",
                 path: "rxjs-demo/calculator"

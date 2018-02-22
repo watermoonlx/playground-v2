@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuService, menuConfig } from './core/services';
+import { StoreModule } from '@ngrx/store';
 import * as Rx from 'rxjs';
 
 @Component({

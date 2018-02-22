@@ -7,12 +7,12 @@
                          [ngModel]="a$|async"
                          (ngModelChange)="a$.next($event)"
                          [nzSize]="'large'"
-                         style="width: 50px;">
+                         style="width: 100px;">
         </nz-input-number>
         <span> + </span>
         <nz-input-number [ngModel]="b$|async"
                          [nzSize]="'large'"
-                         style="width: 50px;"
+                         style="width: 100px;"
                          nzDisabled>
         </nz-input-number>
         <span> - </span>
@@ -20,7 +20,7 @@
                          [ngModel]="c$|async"
                          (ngModelChange)="c$.next($event)"
                          [nzSize]="'large'"
-                         style="width: 50px;">
+                         style="width: 100px;">
         </nz-input-number>
         <span style="font-size: 14px;"> = {{result}}</span>
     </ng-template>

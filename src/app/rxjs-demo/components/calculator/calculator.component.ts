@@ -37,27 +37,3 @@ export class CalculatorComponent implements OnInit {
 
 }
 
-
-// class Calculator {
-
-//     private _a: number;
-//     set a(val) {
-//         this.a = val;
-//         this.b = this._a + 1;
-//     }
-//     get a() {
-//         return this._a;
-//     }
-
-//     b: number;
-// }
-
-class Calculator {
-
-    a: number;
-    get b() {
-        return this.a + 1;
-    }
-
-}
-

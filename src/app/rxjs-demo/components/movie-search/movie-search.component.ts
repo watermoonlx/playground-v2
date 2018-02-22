@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as Rx from 'rxjs';
 import { MovieService } from '../../services';
-import { MovieApiResponse,MovieInfo } from '../../../domain';
+import { MovieApiResponse, MovieInfo } from '../../../domain';
 
 @Component({
     selector: 'app-movie-search',
@@ -12,9 +12,9 @@ export class MovieSearchComponent implements OnInit {
 
     private inputText$ = new Rx.Subject<string>();
 
-    private searchResult$: Rx.Observable<MovieApiResponse>;
-
     private movieList$: Rx.Observable<MovieInfo[]>;
+
+    private loading = false;
 
     constructor(
         private movieSvc: MovieService
@@ -23,17 +23,23 @@ export class MovieSearchComponent implements OnInit {
     ngOnInit() {
         // this.inputText$.subscribe(console.log);
 
-        this.searchResult$ = this.inputText$
+        this.movieList$ = this.inputText$
             .debounceTime(400)
             .distinctUntilChanged()
+            .do(this.showLoading)
             .switchMap(keyword => this.movieSvc.search(keyword))
-            .share();
-
-        this.movieList$ = this.searchResult$
+            .do(() => { debugger })
+            .do(this.hideLoading)
             .map(i => i.subjects)
             .share();
+    }
 
-        this.movieList$.subscribe(console.log);
+    private showLoading = () => {
+        this.loading = true;
+    }
+
+    private hideLoading = () => {
+        this.loading = false;
     }
 
 }
