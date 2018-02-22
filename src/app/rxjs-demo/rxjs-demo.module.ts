@@ -4,7 +4,6 @@ import { FeatureRoutingModule } from './app-routing.module';
 import { ALL_COMPONENTS } from './components';
 import { ALL_SERVICES } from './services';
 import { ALL_PIPES } from './pipes';
-import { RateStarsPipe } from './pipes/rate-stars.pipe';
 
 @NgModule({
     imports: [
@@ -13,8 +12,7 @@ import { RateStarsPipe } from './pipes/rate-stars.pipe';
     ],
     declarations: [
         ...ALL_COMPONENTS,
-        ...ALL_PIPES,
-        RateStarsPipe
+        ...ALL_PIPES
     ],
     providers: [
         ...ALL_SERVICES

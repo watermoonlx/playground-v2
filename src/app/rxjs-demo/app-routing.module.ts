@@ -1,15 +1,11 @@
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 
-import { MovieSearchComponent } from './components';
+import { MovieSearchComponent, CalculatorComponent } from './components';
 
 const routes: Routes = [
+    { path: 'rxjs-demo/calculator', component: CalculatorComponent },
     { path: 'rxjs-demo/movie-search', component: MovieSearchComponent },
-    {
-        path: '',
-        redirectTo: 'rxjs-demo/movie-search',
-        pathMatch: 'full'
-    }
 ];
 
 @NgModule({

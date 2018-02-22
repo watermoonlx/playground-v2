@@ -1,0 +1,1 @@
+    "editor.fontFamily": "source code pro light,Consolas, 'Courier New', monospace",

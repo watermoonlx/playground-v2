@@ -1,0 +1,27 @@
+<nz-card nzNoHovering>
+    <ng-template #title>
+        <span>定义变量a、b、c，已知b=2*a，计算 a + b - c</span>
+    </ng-template>
+    <ng-template #body>
+        <nz-input-number [nzPlaceHolder]="'a'"
+                         [ngModel]="a$|async"
+                         (ngModelChange)="a$.next($event)"
+                         [nzSize]="'large'"
+                         style="width: 50px;">
+        </nz-input-number>
+        <span> + </span>
+        <nz-input-number [ngModel]="b$|async"
+                         [nzSize]="'large'"
+                         style="width: 50px;"
+                         nzDisabled>
+        </nz-input-number>
+        <span> - </span>
+        <nz-input-number [nzPlaceHolder]="'c'"
+                         [ngModel]="c$|async"
+                         (ngModelChange)="c$.next($event)"
+                         [nzSize]="'large'"
+                         style="width: 50px;">
+        </nz-input-number>
+        <span style="font-size: 14px;"> = {{result}}</span>
+    </ng-template>
+</nz-card>

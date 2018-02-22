@@ -1,12 +1,15 @@
 import { MovieSearchComponent } from './movie-search/movie-search.component'
 import { MoviePosterComponent } from './movie-poster/movie-poster.component';
+import { CalculatorComponent } from './calculator/calculator.component';
 
 export const ALL_COMPONENTS = [
     MovieSearchComponent,
-    MoviePosterComponent
+    MoviePosterComponent,
+    CalculatorComponent
 ];
 
 export {
     MovieSearchComponent,
-    MoviePosterComponent
+    MoviePosterComponent,
+    CalculatorComponent
 };
