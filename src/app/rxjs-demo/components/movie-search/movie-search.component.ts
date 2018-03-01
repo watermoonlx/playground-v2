@@ -28,7 +28,6 @@ export class MovieSearchComponent implements OnInit {
             .distinctUntilChanged()
             .do(this.showLoading)
             .switchMap(keyword => this.movieSvc.search(keyword))
-            .do(() => { debugger })
             .do(this.hideLoading)
             .map(i => i.subjects)
             .share();

@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,OnDestroy,ChangeDetectionStrategy,ChangeDetectorRef } from '@angular/core';
 import * as Rx from 'rxjs';
 
 @Component({
     selector: 'app-calculator',
     templateUrl: './calculator.component.html',
-    styleUrls: ['./calculator.component.less']
+    styleUrls: ['./calculator.component.less'],
+    changeDetection:ChangeDetectionStrategy.OnPush
 })
-export class CalculatorComponent implements OnInit {
+export class CalculatorComponent implements OnInit,OnDestroy {
 
     a$ = new Rx.Subject<number>();
 
@@ -16,9 +17,16 @@ export class CalculatorComponent implements OnInit {
 
     result: number;
 
-    constructor() { }
+    // result$: Rx.Observable<number>;
+
+    destoryed$ = new Rx.Subject<void>();
+
+    constructor(
+        private cd: ChangeDetectorRef
+    ) { }
 
     ngOnInit() {
+        
         this.b$ = this.a$.map(i => i * 2);
 
         Rx.Observable
@@ -33,7 +41,17 @@ export class CalculatorComponent implements OnInit {
         //     .subscribe(([a, b, c]) => {
         //         this.result = a + b - c;
         //     });
+
+        // this.result$ = Rx.Observable
+        //     .combineLatest(this.a$, this.b$, this.c$)
+        //     .map(([a, b, c]) => a + b - c);
+    }
+
+    ngOnDestroy() {
+        this.destoryed$.next();
+        this.destoryed$.complete();
     }
 
 }
+
 

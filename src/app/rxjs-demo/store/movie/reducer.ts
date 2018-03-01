@@ -1,7 +1,6 @@
 import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity'
 import { MovieInfo } from '../../../domain';
 import * as movieActions from './actions';
-import { state } from '../../../../../node_modules/_@angular_core@5.2.6@@angular/core/core';
 
 export interface State extends EntityState<MovieInfo> {
     loading:boolean

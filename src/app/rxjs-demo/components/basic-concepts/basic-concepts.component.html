@@ -1,17 +1,115 @@
-<nz-card style="width:300px;">
-    <ng-template #title>
-        点击事件流
-    </ng-template>
-    <ng-template #body>
-        <button id="btn1">点击</button>
-    </ng-template>
-</nz-card>
+<div nz-row>
+    <nz-card style="width:300px;">
+        <ng-template #title>
+            点击事件流
+        </ng-template>
+        <ng-template #body>
+            <button id="btn1">点击</button>
+        </ng-template>
+    </nz-card>
 
-<nz-card style="width:300px;">
-    <ng-template #title>
-        过滤、映射点击事件流
-    </ng-template>
-    <ng-template #body>
-        <button id="btn2">点击</button>
-    </ng-template>
-</nz-card>
+    <nz-card style="width:300px;">
+        <ng-template #title>
+            过滤、映射点击事件流
+        </ng-template>
+        <ng-template #body>
+            <button id="btn2">点击</button>
+        </ng-template>
+    </nz-card>
+
+</div>
+
+<div nz-row>
+    <nz-card style="width:300px;">
+        <ng-template #title>
+            懒执行
+        </ng-template>
+        <ng-template #body>
+            <button nz-button
+                    [nzType]="'default'"
+                    (click)="lazySubscribe()">
+                <span>订阅</span>
+            </button>
+        </ng-template>
+    </nz-card>
+
+
+    <nz-card style="width:300px;">
+        <ng-template #title>
+            每个订阅独立
+        </ng-template>
+        <ng-template #body>
+            <button nz-button
+                    [nzType]="'default'"
+                    (click)="firstSubscribe()">
+                <span>第一个订阅</span>
+            </button>
+
+            <button nz-button
+                    [nzType]="'default'"
+                    (click)="secondSubscribe()">
+                <span>第二个订阅</span>
+            </button>
+        </ng-template>
+    </nz-card>
+
+    <nz-card style="width:300px;">
+        <ng-template #title>
+            数据传递给消费者的过程是同步的。
+        </ng-template>
+        <ng-template #body>
+            <button nz-button
+                    [nzType]="'default'"
+                    (click)="promiseThen()">
+                <span>Promise</span>
+            </button>
+            <button nz-button
+                    [nzType]="'default'"
+                    (click)="syncSubscribe()">
+                <span>Observable</span>
+            </button>
+        </ng-template>
+    </nz-card>
+</div>
+
+<div nz-row>
+    <nz-card style="width:300px;">
+        <ng-template #title>
+            Subject的多播特性
+        </ng-template>
+        <ng-template #body>
+            <button nz-button
+                    [nzType]="'default'"
+                    (click)="subjectFirstSubscribe()">
+                <span>第一个订阅</span>
+            </button>
+
+            <button nz-button
+                    [nzType]="'default'"
+                    (click)="subjectSecondSubscribe()">
+                <span>第二个订阅</span>
+            </button>
+        </ng-template>
+    </nz-card>
+</div>
+
+<div nz-row>
+    <nz-card style="width:300px;">
+        <ng-template #title>
+            取消订阅，释放资源
+        </ng-template>
+        <ng-template #body>
+            <button nz-button
+                    [nzType]="'default'"
+                    (click)="subscribe()">
+                <span>订阅</span>
+            </button>
+
+            <button nz-button
+                    [nzType]="'default'"
+                    (click)="unsubscribe()">
+                <span>取消订阅</span>
+            </button>
+        </ng-template>
+    </nz-card>
+</div>

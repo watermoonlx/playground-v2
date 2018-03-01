@@ -12,15 +12,14 @@
     </ng-template>
 </nz-card>
 
-
-<nz-card nzNoHovering>
-    <ng-template #body>
-        <nz-spin [nzSize]="'large'"
-                 [nzSpinning]="loading">
+<nz-spin [nzSize]="'large'"
+         [nzSpinning]="loading">
+    <nz-card nzNoHovering>
+        <ng-template #body>
             <ng-container *ngFor="let movie of movieList$|async">
                 <app-movie-poster [movie]="movie">
                 </app-movie-poster>
             </ng-container>
-        </nz-spin>
-    </ng-template>
-</nz-card>
+        </ng-template>
+    </nz-card>
+</nz-spin>
